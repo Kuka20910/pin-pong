@@ -1,11 +1,11 @@
 from pygame import*
-from random import*
-from  time import time as timer
+#параметры экрана и скорость шара
 w_h = 600
 w_v = 500
 speed_x = 3
 speed_y = 3
 font.init()
+#дефолт класс для спрайта
 class GS(sprite.Sprite):
     def __init__ (self,p_i,p_x,p_y,p_s,size_x,size_y):
         super().__init__()
@@ -17,6 +17,7 @@ class GS(sprite.Sprite):
         self.directs = 'right'
     def reset(self):
         win.blit(self.image,(self.rect.x ,self.rect.y ))
+#реализация для ракеток
 class Player(GS):
     def update1(self):
         key_p = key.get_pressed()
@@ -35,7 +36,7 @@ class Player(GS):
     
     
 
-        
+#cоздание интерфейса     
 win = display.set_mode((w_h,w_v))
 back = (255,255,200 )
 display.set_caption('Пинг Понг')
@@ -60,7 +61,7 @@ while game:
 
 
                 
-
+#условия выиграша и проигрыша 
     if finish != True:
         win.fill(back)
         pl1.reset()
